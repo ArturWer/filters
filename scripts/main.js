@@ -22,3 +22,13 @@ persons.forEach(person=>{
 });
 console.table(result);
 /* creating table on a page*/
+result.forEach(person=>{
+	let row = document.createElement("tr");
+	let th = document.createElement("th");
+	let td = document.createElement("td");
+	th.textContent = person.name;
+	td.textContent = person.rate;
+	row.appendChild(th);
+	row.appendChild(td);
+	table.appendChild(row);
+});

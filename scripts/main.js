@@ -9,17 +9,24 @@ let persons = [
 	{name:"Isabella", rate: 60},
 	{name:"Mary", rate: 75},
 ];
-let table = document.querySelector('table');
+let tbody = document.querySelector('tbody');
 let max = 85;
 let min = 30;
 let result = [];
 console.table(persons);
 /* function forEach */
+/*
 persons.forEach(person=>{
 	if (person.rate>min && person.rate<max) {
 		result.push(person);
 	}
-});
+});*/
+/* function filter */
+function rangePrise(person){
+	return person.rate>min && person.rate<max;
+};
+result = persons.filter(rangePrise);
+
 console.table(result);
 /* creating table on a page*/
 result.forEach(person=>{
@@ -30,5 +37,5 @@ result.forEach(person=>{
 	td.textContent = person.rate;
 	row.appendChild(th);
 	row.appendChild(td);
-	table.appendChild(row);
+	tbody.appendChild(row);
 });

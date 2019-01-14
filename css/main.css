@@ -1,4 +1,27 @@
 body{
 	padding: 0;
 	margin: 0;
+	font-size: 24px;
 }
+table{
+	border: 1px solid black;
+	margin: 2rem auto 0 auto;
+	width: 500px;
+}
+thead{
+	background-color: #470729;
+	color: white;
+}
+tbody{
+	text-shadow: 1px 1px 1px silver;
+}
+th, td{
+	text-align: center;
+}
+tbody tr:nth-child(odd) {
+  background-color: #69bfff;
+}
+tbody tr:nth-child(even) {
+  background-color: #eafffd;
+}
+

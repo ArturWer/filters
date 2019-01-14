@@ -12,6 +12,13 @@ let persons = [
 let table = document.querySelector('table');
 let max = 85;
 let min = 30;
+let result = [];
 console.table(persons);
-
-	
+/* function forEach */
+persons.forEach(person=>{
+	if (person.rate>min && person.rate<max) {
+		result.push(person);
+	}
+});
+console.table(result);
+/* creating table on a page*/

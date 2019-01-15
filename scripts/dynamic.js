@@ -12,10 +12,16 @@ let persons = [
 let tbody = document.querySelector('tbody');
 let minVal = document.getElementById('minVal');
 let maxVal = document.getElementById('maxVal');
-let max = 85;
-let min = 30;
+let max = 0;
+let min = 0;
 let result = [];
-console.table(persons);
+
+/* getting MIN MAX values */
+persons.forEach(person=>{
+	if (person.rate > max) max = person.rate;
+	if (min === 0) min = person.rate;
+	if (person.rate < min) min = person.rate;
+});
 /* function forEach */
 /*
 persons.forEach(person=>{

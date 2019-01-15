@@ -8,6 +8,10 @@ let persons = [
 	{name:"Bob", rate: 25},
 	{name:"Isabella", rate: 60},
 	{name:"Mary", rate: 75},
+	{name:"Luk", rate: 95},
+	{name:"Piter", rate: 110},
+	{name:"Arthur", rate: 100},
+	{name:"Jean", rate: 25}
 ];
 let tbody = document.querySelector('tbody');
 let minVal = document.getElementById('minVal');
@@ -16,6 +20,14 @@ let max = 0;
 let min = 0;
 let result = [];
 let rows = [];
+
+function update(){
+	tbody.innerHTML = "";
+	rows.forEach(pers=>{
+		if (pers.person.rate >= minVal.value  && pers.person.rate <= maxVal.value) 
+			tbody.appendChild(pers.element);
+	});
+};
 
 persons.forEach(person=>{
 	/* getting MIN MAX values */
@@ -30,9 +42,11 @@ persons.forEach(person=>{
 	td.textContent = person.rate;
 	row.appendChild(th);
 	row.appendChild(td);
-	tbody.appendChild(row);
 	rows.push({"person":person,element:row});
 });
 
 minVal.value = min;
 maxVal.value = max;
+update();
+minVal.addEventListener("change", update);
+maxVal.addEventListener("change", update);

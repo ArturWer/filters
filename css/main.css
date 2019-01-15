@@ -8,10 +8,6 @@ main{
 	width: 800px;
 	margin: 0 auto;
 }
-#rangeInput{
-	display: block;
-	margin: 3rem auto 0 auto;
-}
 
 table{
 	border: 1px solid black;

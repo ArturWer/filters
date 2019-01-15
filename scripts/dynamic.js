@@ -15,29 +15,14 @@ let maxVal = document.getElementById('maxVal');
 let max = 0;
 let min = 0;
 let result = [];
+let rows = [];
 
-/* getting MIN MAX values */
 persons.forEach(person=>{
+	/* getting MIN MAX values */
 	if (person.rate > max) max = person.rate;
 	if (min === 0) min = person.rate;
-	if (person.rate < min) min = person.rate;
-});
-/* function forEach */
-/*
-persons.forEach(person=>{
-	if (person.rate>min && person.rate<max) {
-		result.push(person);
-	}
-});*/
-/* function filter */
-function rangePrise(person){
-	return person.rate>min && person.rate<max;
-};
-result = persons.filter(rangePrise);
-
-console.table(result);
-/* creating table on a page*/
-result.forEach(person=>{
+	else if (person.rate < min) min = person.rate;
+	/* creating table on a page*/
 	let row = document.createElement("tr");
 	let th = document.createElement("th");
 	let td = document.createElement("td");
@@ -46,6 +31,8 @@ result.forEach(person=>{
 	row.appendChild(th);
 	row.appendChild(td);
 	tbody.appendChild(row);
+	rows.push({"person":person,element:row});
 });
+
 minVal.value = min;
 maxVal.value = max;
